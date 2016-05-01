@@ -1,0 +1,35 @@
+
+.comment {
+    font-size: 24px;
+    width: 40%;
+
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #ededed;
+}
+
+
+.hidden {
+    display:none;
+}
+
+.visible {
+    display:block;
+}
+
+.highlight { 
+    color: #feb24c;
+}
+
+.editable{ 
+	background:#EAEAEA
+}
+
+.imageDiv {
+    height: 10px;
+    width: 10px;
+
+}
+
+#resizedTextbox{
+	width: 40%;
+}

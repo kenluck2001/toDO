@@ -1,0 +1,90 @@
+This todo list application was built on Ubuntu and tested on Firefox browser. However, I have not used any platform-specific routine and as such it should work for every OS.
+
+Requirements
+-------------
+
+Javascript
+    React.js (
+    https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js,
+    https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js
+)
+
+    browser.js (https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.16/browser.js)
+
+    jquery.highlight.js (http://johannburkard.de/resources/Johann/jquery.highlight-5.js)
+
+    jquery.js (https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js)
+
+    marked.js (https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js)
+    
+    bootstrap.min.js (http://getbootstrap.com/)
+
+
+PHP
+    slim (http://www.slimframework.com/)
+
+
+File structure
+---------------
+/toDO
+    composer.json  
+    composer.lock  
+    data.sql  
+    /public  
+    readme  
+    /vendor
+
+
+Installation instructions
+-------------------------
+The package manager in use is composer for handling all the required dependency and modify the composer.json
+
+Add elements to your composer.json and run composer update as shown below. 
+
+{
+    "require": {
+        "slim/slim": "*",
+        "illuminate/database": "*"
+    }
+}
+
+
+
+From root dir navigate to public directory and run the 
+$php -S localhost:8000
+
+
+
+Run the sql script in data.sql to create the required table.
+
+Run the database server based on the configuration of your system. Remember to provide your database credentials in public directory and edit the index.php. An example is show below
+
+// Database information
+$settings = array (
+		'driver' => 'mysql',
+		'host' => '127.0.0.1',
+		'port' => '3306',
+		'database' => 'todo',
+		'username' => 'root',
+		'password' => 'root',
+		'charset' => 'utf8',
+		'collation' => 'utf8_unicode_ci',
+		'prefix' => '' 
+);
+
+
+Remember to bootstrap the eloquent
+
+Conclusion
+-----------
+React.js is just a state machine. It seems to be an overbloated code base as we can achieve the same effect using jquery and long polling. We modify states in react.js and using a kind of instant publisher / subscribe design pattern to update all the DOM that depends on that state. The virtual DOM is really good as it ensure more cross browser compatibility.
+
+Jquery.highlight.js provides for highlighting of terms.
+Slim is perfect for writing RESTful API.
+
+As for code quality, there is lot of ajax calls in this logic. However, it is cheap to make the calls as most of them are just reading. 
+
+
+Future work
+------------
+I will add a score for tasks on the todo list to show how important it is. The user will have the option of updated the importance of a task. The user will have a ability to drag and drop task in the todo list to ensure more important tasks are closer to the top of the screen.
